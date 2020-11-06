@@ -1,0 +1,181 @@
+{
+    "catorgery": [
+        "Mobiles",
+        "Vehicles",
+        "Property for Sale",
+        "Property for Rent",
+        "Electronics & Home Appliances",
+        "Bikes",
+        "Business, Industrial & Agriculture",
+        "Services",
+        "Jobs",
+        "Animals",
+        "Furniture & Home Decor",
+        "Fashion & Beauty",
+        "Books, Sports & Hobbies",
+        "Kids"
+    ],
+    "catIcon": [
+        "fas fa-mobile-alt",
+        "fas fa-car-alt",
+        "fas fa-home",
+        "fas fa-home",
+        "fas fa-desktop",
+        "fas fa-motorcycle",
+        "fas fa-building",
+        "fas fa-concierge-bell",
+        "fas fa-briefcase",
+        "fas fa-dog",
+        "fas fa-couch",
+        "fas fa-tshirt",
+        "far fa-futbol",
+        "fas fa-baby"
+    ],
+    "subCat": {
+        "Mobiles": [
+            "Tablets",
+            "Accessories",
+            "Mobile Phones"
+        ],
+        "Vehicles": [
+            "Car",
+            "Car on Installment",
+            "Car Accessories",
+            "Spare Parts",
+            "Buses, Vans & Trucks",
+            "Rickshaw & Chingchi",
+            "Other Vehicles",
+            "Boats",
+            "Tractors & Trailers"
+        ],
+        "Property for Sale": [
+            "Land & Plots",
+            "Houses",
+            "Apartment & Flats",
+            "Shop- Offices - Comertial Space"
+        ],
+        "Property for Rent": [
+            "Houses",
+            "Apartments & Flats",
+            "Portions & Floor",
+            "Shop- Offices - Comertial Space",
+            "Rooms",
+            "Roommates & Paying Guests",
+            "Vacation Rentals - Guest Houses",
+            "Land & Plots"
+        ],
+        "Electronics & Home Appliances": [
+            "Computers & Accessories",
+            "TV - Video - Audio",
+            "Cameras & Accessories",
+            "Games & Entertainment",
+            "Other Home Appliances",
+            "Generators, UPS & Power Solutions",
+            "Kitchen Appliances",
+            "AC & Coolers",
+            "Fridges & Freezers",
+            "Washing Machines & Dryers"
+        ],
+        "Bikes": [
+            "Motorcycles",
+            "Spare Parts",
+            "Bicycles",
+            "ATV & Quads",
+            "Scooters"
+        ],
+        "Business, Industrial & Agriculture": [
+            "Business for Sale",
+            "Food & Restaurants",
+            "Trade & Industrial",
+            "Construction & Heavy Machinery",
+            "Agriculture",
+            "Other Business & Industry",
+            "Medical & Pharma"
+        ],
+        "Services": [
+            "Education & Classes",
+            "Travel & Visa",
+            "Car Rental",
+            "Drivers & Taxi",
+            "Web Development",
+            "Other Services",
+            "Electronics & Computer Repair",
+            "Event Services",
+            "Health & Beauty",
+            "Maids & Domestic Help",
+            "Movers & Packers",
+            "Home & Office Repair",
+            "Catering & Restaurant",
+            "Farm & Fresh Food"
+        ],
+        "Jobs": [
+            "Online",
+            "Marketing",
+            "Advertising & PR",
+            "Education",
+            "Customer Service",
+            "Sales",
+            "IT & Networking",
+            "Hotels & Tourism",
+            "Clerical & Administration",
+            "Human Resources",
+            "Accounting & Finance",
+            "Manufacturing",
+            "Medical",
+            "Domestic Staff",
+            "Part - Time",
+            "Other Jobs"
+        ],
+        "Animals": [
+            "Fish & Aquariums",
+            "Birds",
+            "Hens & Aseel",
+            "Cats",
+            "Dogs",
+            "Livestock",
+            "Horses",
+            "Pet Food & Accessories",
+            "Other Animals"
+        ],
+        "Furniture & Home Decor": [
+            "Sofa & Chairs",
+            "Beds & Wardrobes",
+            "Home Decoration",
+            "Tables & Dining",
+            "Garden & Outdoor",
+            "Painting & Mirrors",
+            "Rugs & Carpets",
+            "Curtains & Blinds",
+            "Office Furniture",
+            "Other Household Items"
+        ],
+        "Fashion & Beauty": [
+            "Accessories",
+            "Clothes",
+            "Footwear",
+            "Jewellery",
+            "Make Up",
+            "Skin & Hair",
+            "Watches",
+            "Wedding",
+            "Lawn & Pret",
+            "Couture",
+            "Other Fashion"
+        ],
+        "Books, Sports & Hobbies": [
+            "Books & Magazines",
+            "Musical Instruments",
+            "Sports Equipment",
+            "Gym & Fitness",
+            "Other Hobbies"
+        ],
+        "Kids": [
+            "Kids Furniture",
+            "Toys",
+            "Prams & Walkers",
+            "Swings & Slides",
+            "Kids Bikes",
+            "Kids Accessories"
+        ]
+    }
+}
