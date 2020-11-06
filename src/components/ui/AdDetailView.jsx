@@ -32,7 +32,11 @@ class AdDetailView extends Component {
                         <div className="detail-page flex">
                             <div className="detail-box">
                                 <div className="detail-img">
-                                    {this.state.currentImage.length > 0 ? <img src={this.state.currentImage} alt='sliderImage' /> : <img src={Object.values(this.props.detailAddImageData[0].folderImages)[0].url} alt={Object.values(this.props.detailAddImageData[0].folderImages)[0].name} />}
+                                    {this.state.currentImage.length > 0 ? <img src={this.state.currentImage} alt='sliderImage' />
+                                        :
+                                        this.props.detailAddImageData[0].folderImages.length > 0 ?
+                                            <img src={Object.values(this.props.detailAddImageData[0].folderImages)[0].url} alt={Object.values(this.props.detailAddImageData[0].folderImages)[0].name} /> : null
+                                    }
                                 </div>
                                 <div className="detail-img-list">
                                     {Object.values(this.props.detailAddImageData[0].folderImages).map(data => <img src={data.url} alt={data.name} onClick={() => this.onImageClick(data.url)} />)}
@@ -63,8 +67,8 @@ class AdDetailView extends Component {
                                 </div>
                                 <div className="detail-seller">
                                     <h3>Seller description</h3>
-                                    <div className="avatar flex">
-                                        <img src={avatar} alt="avatar" />
+                                    <div className="avatar-img flex">
+                                        <img src={avatar} alt="avatar" style={{ height: '100 %' }} />
                                         <div className="text">
                                             <h2>{this.props.detailAddViewData[0].Name}</h2>
                                             <h5>member since Now</h5>

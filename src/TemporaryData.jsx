@@ -20,11 +20,7 @@ class TemporaryData extends Component {
             Name: '',
             Mobile: ''
         }
-    }
-    onDrop = (pictures) => {
-        this.setState({
-            pictures: this.state.pictures.concat(pictures),
-        });
+        this.hiddenFileInput = React.createRef();
     }
     handleChange = (e) => {
         console.log(e.target.type)
@@ -37,6 +33,10 @@ class TemporaryData extends Component {
         }
         console.log(this.state.pictures)
     }
+    handleClick = event => {
+        this.hiddenFileInput.current.click();
+    };
+
     Submit = () => {
         this.state.pictures.map(data => {
             let uploadRef = storage.ref(`images/${this.state.AddId}/${data.name}`).put(data);
@@ -103,17 +103,10 @@ class TemporaryData extends Component {
                     </label>
                 </div>
                 <div>
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
-                    <input type="file" name="pictures" onChange={this.handleChange} />
+                    <div class="choose_file">
+                        <button onClick={(e) => this.handleClick(e)}><i class="fas fa-camera"></i></button>
+                        <input name="pictures" type="file" style={{ display: 'none' }} ref={this.hiddenFileInput} onChange={this.handleChange} />
+                    </div>
 
                 </div>
                 <div>

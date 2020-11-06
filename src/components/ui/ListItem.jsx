@@ -8,12 +8,10 @@ class ListItem extends Component {
     }
     componentDidMount() {
         let data = ''
-        setTimeout(() => { data = this.props.images.filter(find => find.folderName === this.props.data.AddId)[0].folderImages.map(data => data).filter(obj => Object.keys(obj).some(key => obj[key].includes('title'))); this.setState({ imageSrc: data[0].url }) }, 1000)
-        if (this.state.imageSrc.length < 0) {
-            window.location.reload(true);
-        }
+        setTimeout(() => { data = this.props.images.filter(find => find.folderName === this.props.data.AddId)[0].folderImages.map(data => data).filter(obj => Object.keys(obj).some(key => obj[key].includes('title'))); this.setState({ imageSrc: data[0] }) }, 1000)
     }
     render() {
+
         return (
             <>
                 {this.props.placeholder ?
@@ -29,7 +27,7 @@ class ListItem extends Component {
                     <div className="ad color">
                         <Link to={`/AdView/${this.props.data.AddId}`} className="color">
                             <div className="pos">
-                                <img src={this.state.imageSrc} alt="title" />
+                                {this.state.imageSrc ? <img src={this.state.imageSrc.url} alt={this.state.imageSrc.name} /> : <div className="pos placeholder anim"></div>}
                             </div>
                             <div className="tit color">
                                 <h1> Rs. {this.props.data.SetPrice}</h1>

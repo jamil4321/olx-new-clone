@@ -3,10 +3,12 @@ const reducer = (state, action) => {
   let newState = state;
   switch (action.type) {
     case "GETDATAFROMFIREBASE":
+      console.log(action.states)
       newState = {
         ...newState,
         isDataLoading: !state.isDataLoading,
-        data: action.payload
+        data: action.payload,
+        states: action.states
       }
       return newState
     case "GETIMAGESFROMFIREBASE":
@@ -23,7 +25,13 @@ const reducer = (state, action) => {
         detailAddViewData: filterData,
         detailAddImageData: filterImage
       }
-      return newState
+      return newState;
+    case 'LOGIN':
+      return state = {
+        ...state,
+        user: action.payload,
+        isLogin: !state.isLogin
+      }
     default:
       return state;
   }

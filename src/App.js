@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from "react-redux";
+import FireBase from './Firebase';
 import Header from './components/ui/header'
 import Home from './components/ui/Home';
 import Footer from './components/ui/Footer';
-import { BrowserRouter, Route } from 'react-router-dom';
-import TemporaryData from './TemporaryData';
-import { connect } from "react-redux";
-import { database, storage } from 'firebase';
 import AdDetailView from './components/ui/AdDetailView';
 import AddFilter from './components/ui/AddFilter';
-
+import Popup from './components/ui/Popup'
+import Form from './components/ui/Form'
 class App extends Component {
   componentDidMount() {
-    database().ref('data').on('value', snapshot => {
+    FireBase.database().ref('data').on('value', snapshot => {
       let data = snapshot.val();
-      this.props.onDataLoad(data)
+
+      let states = [];
+      Object.values(data).map(data => states.push(data.State))
+      let NewStates = [...new Set(states)]
+      states.filter((item, index) => states.indexOf(item) === index);
+      states.reduce((unique, item) => unique.includes(item) ? unique : [...unique, item])
+      this.props.onDataLoad(data, NewStates)
     })
-    storage().ref().child('/images/').listAll().then(res => {
+    FireBase.storage().ref().child('/images/').listAll().then(res => {
       let imagData = [];
       res.prefixes.forEach(folderRef => {
         let folderName = folderRef.name;
@@ -43,9 +49,10 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Route exact path="/" component={Home} />
-          <Route path="/temp" component={TemporaryData} />
           <Route path="/AdView/:id" component={AdDetailView} />
           <Route path="/browser/:id" component={AddFilter} />
+          <Route path="/test" component={Popup} />
+          <Route path="/form" component={Form} />
           <Footer />
         </BrowserRouter>
       </>
@@ -62,7 +69,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    onDataLoad: async (data) => await dispatch({ type: "GETDATAFROMFIREBASE", isLoading: false, payload: data }),
+    onDataLoad: async (data, states) => await dispatch({ type: "GETDATAFROMFIREBASE", isLoading: false, payload: data, states: states }),
     onImageLoad: async (data) => await dispatch({ type: "GETIMAGESFROMFIREBASE", payload: data })
   }
 }

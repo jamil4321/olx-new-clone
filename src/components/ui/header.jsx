@@ -2,15 +2,37 @@ import React, { Component } from 'react'
 import logo from '../../asset/Logo.png'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import Popup from './Popup';
 
 
 class header extends Component {
+    state = {
+        isOpen: false,
+        serchInput: ''
+    }
+    onHHandleChange = (e) => {
+        this.setState({ serchInput: e.target.value })
+    }
+    onClickHandel = () => {
+        this.setState({ isOpen: !this.state.isOpen })
+        console.log(this.state.isOpen)
+    }
+    sellButton = () => {
+        if (this.props.isLogin) {
+            window.location.href = "/test"
+        } else {
+            console.log('notLogin')
+        }
+    }
+    goToHome = () => {
+        window.location.href = "/"
+    }
     render() {
         return (
             <>
-                <div className="header fixed flex aic">
+                <div className={`header fixed flex aic ${!!localStorage.getItem('uid') ? 'newHeader' : null}`}>
                     <div className="logo">
-                        <img src={logo} alt="" />
+                        <img src={logo} alt="" onClick={this.goToHome} />
                     </div>
                     <div className="location rel flex aic">
                         <div className="fas fa-search ico s24" />
@@ -18,12 +40,13 @@ class header extends Component {
                         <button className="fas fa-chevron-down arrow s24" />
                     </div>
                     <div className="search flex aic">
-                        <input className="query" placeholder="Your Location" value="Find Cars, Mobile Phones and More...." />
+                        <input className="query" placeholder="Find Cars, Mobile Phones and More...." value={this.state.serchInput} onChange={this.onHHandleChange} />
                         <button className="fas fa-search go s24" />
                     </div>
                     <div className="action flex aic">
-                        <Link to="accuont/login" className="color fontb s15 noulh noul">Login</Link>
-                        <button className="sell flex aic">
+                        {!!localStorage.getItem('uid') ? <div className="flex profile"><Link className="noulh noul icon-hover"><i class="far fa-comment color fontb s20 "></i></Link><Link className="noulh noul icon-hover"><i class="far fa-bell color fontb s20"></i></Link><img className="profile-avtr" src={localStorage.getItem('photo')} alt={localStorage.getItem('name')} /></div> : <><Link onClick={this.onClickHandel} className="color fontb s15 noulh noul">Login</Link>
+                            <Popup isOpen={this.state.isOpen} popUpClose={this.onClickHandel} /></>}
+                        <button className="sell flex aic" onClick={this.sellButton}>
                             <div className="fas fa-plus ico s24" />
                             <h2 className="s18 font">sell</h2>
                         </button>
@@ -43,7 +66,9 @@ class header extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        nav: state.nav
+        nav: state.nav,
+        isLogin: state.isLogin,
+        user: state.user
     }
 }
 const mapDispatchToProps = dispatch => {

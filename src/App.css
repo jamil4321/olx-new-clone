@@ -69,6 +69,9 @@ input,button,select,textarea{outline: none;}
   padding: 0px 18%;
   z-index: 9;
 }
+.newHeader{
+  padding: 0px 10% !important;
+}
 .header .logo{ width:50px}
 .header .logo img{ width:100%; margin-right: 30px;}
 .header .location { 
@@ -113,18 +116,17 @@ input,button,select,textarea{outline: none;}
   max-width: 50px;
   color: #fff;
 }
-.header .search .goHover{}
 
 .header .action{
   flex :1;
-  max-width: 150px;
+  min-width: 150px;
   align-items: flex-end;
   justify-content: flex-end;
 }
 .header .action .sell{
   padding: 8px 20px;
   border:3px solid #ffa500;
-  
+  margin-left: 20px;
   color:#002f34;
   text-align: center;
   background:#fff;
@@ -137,7 +139,26 @@ input,button,select,textarea{outline: none;}
 .header .action .sell .ico{
   margin-right: 6px;
 }
-.header .action .sell:hover{}
+.profile{
+ font-size: 30px;
+}
+.profile-avtr{
+  border-radius: 50%;
+    width: 50px;
+}
+.icon-hover{
+  transition: all 1s ease-in;
+  border-radius: 50%;
+  width: 40px;
+  text-align: center;
+}
+.icon-hover:hover{
+  background-color: #00a49f;
+
+}
+.icon-hover i{
+  padding: auto;
+}
 .hclr{height: 120px;}
 .hnav{
   top:70px;
@@ -184,7 +205,6 @@ input,button,select,textarea{outline: none;}
   top: 112px;
   left: 0;
   right: 0;
-  z-index: 1;
 }
 .home-page{
   padding: 30px 18%;
@@ -216,7 +236,6 @@ input,button,select,textarea{outline: none;}
   margin-left: auto;
   margin-right: auto;
 }
-.ad .pos.placeholder{}
 .ad .tit{
   margin:10px 0px
 }
@@ -272,19 +291,12 @@ input,button,select,textarea{outline: none;}
 }
 
 .app-ribon{ padding: 0px 18%; background: #f9f9f9; }
-.app-ribon .img img{}
-.app-ribon .meta{}
-.app-ribon .meta .title{}
-.app-ribon  .meta .slogan{}
-.app-ribon .links{}
 .app-ribon .links .title{
   margin-bottom: 20px;
 }
-.app-ribon .links .as{}
 .app-ribon .links a{
   margin:0px 10px 0px 0px
 }
-.app-ribon .links a:hover{}
 
 .footer{padding: 0px 18%; background: #f1f1f1; border-top: 1px #ccc solid;}
 .footer .block{
@@ -319,7 +331,13 @@ input,button,select,textarea{outline: none;}
   flex-wrap: wrap;
 }
 .detail-box{
-  width:65%
+  width:65%;
+   flex-wrap: wrap;
+}
+.other-detail{
+  flex-wrap: wrap;
+  margin-left: 5%;
+   width:30%
 }
 .detail-img{
     background-color: black;
@@ -353,11 +371,6 @@ input,button,select,textarea{outline: none;}
   border: 1px solid black;
     width: 100%;
     padding: 3%;
-}
-
-.other-detail{
-  margin-left: 5%;
-   width:30%
 }
 .detail-price{
   border: 1px solid black;
@@ -413,4 +426,184 @@ input,button,select,textarea{outline: none;}
 .filterOptions{
   width: 20%;
   padding: 20px;
+}
+.form{
+  padding: 30px 18%;
+  color: #002f34;
+}
+.form .setecltedCategory,.includeSomeDetail,.setAPrice,.uploadPhotos,.confirmLocation,.review,.postNow{
+  width:100%; 
+  border: #002f34 solid 1px;
+ padding:20px;
+}
+.choose_file{
+  border: none !important;
+  width: 50px !important;
+  margin: 20px;
+  
+}
+.choose_file button{
+  font-size: 50px;
+  padding: 20px;
+  margin: auto;
+  background: none;
+  border: #002f34 solid 1px;
+}
+.center{
+  text-align: center;
+}
+.radio-Button{
+    appearance: none;
+    background-color: #fff;
+    border-style: none;
+    box-shadow: inset 0 0 0 1px #002f34;
+    border-radius: 4px;
+    color: #002f34;
+    cursor: pointer;
+    font-size: 14px;
+    height: 36px;
+    min-width: 64px;
+    outline: 0;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+
+}
+.radio-Button:hover{
+    background-color: #c8f8f6;
+    box-shadow: inset 0 0 0 1px #00a49f;
+    color: #00a49f;
+}
+.active{
+  background-color: #c8f8f6;
+    box-shadow: inset 0 0 0 2px #00a49f;
+    color: #00a49f;
+    font-weight: 700;
+}
+label {
+  display: block;
+  margin-top: 20px;
+}
+
+.titleInputBox{
+  appearance: none;
+    background: none;
+    border: none;
+    color: #002f34;
+    display: block;
+    font-size: 16px;
+    height: 48px;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+}
+.titleInputDiv{
+  border: 1px solid #002f34;
+  margin-bottom: 10px;
+  margin-top: 1px;
+}
+.InputTextBox{
+  font-size: 12px;
+}
+textArea{
+    appearance: none;
+    background: none;
+    border: none !important;
+    color: #002f34;
+    display: block;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+}
+.uploadPhotos{
+  width: 100%;
+}
+.uploadImageButton{
+  flex-wrap: wrap;
+  width: 50%;
+}
+.rupee{
+  font-size: 20px;
+  margin-top: 10px;
+  border-right: 1px solid #002f34;
+}
+.selectBox{
+  appearance: none;
+    background: none;
+    border: none;
+    color: #002f34;
+    display: block;
+    font-size: 16px;
+    height: 48px;
+    box-sizing: border-box;
+    outline: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 100%;
+}
+.underLine{
+  border-bottom: 2px solid #002f34;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.avatar img{
+  height: 100px;
+}
+.postNow button{
+  background-color: #d8dfe0;
+    color: #7f9799;
+    border-color: #d8dfe0;
+    border-radius: 4px;
+    padding: 0 7px;
+    width: 100%;
+    height: 40px;
+}
+.button-Login{
+    color: #002f34;
+    border-radius: 4px;
+    border: 2px solid #002f34;
+    padding: 0 10px;
+    margin: 4px 0;
+    width: 100%;
+    font-size: 16px;
+    height: 48px;
+    background: none;
+    text-align: center;
+}
+.priceFilter input{
+    background: gray;
+    border: none;
+    height: 30px;
+    max-width: 80px;
+    margin:2px;
+    color:white
+}
+
+
+
+
+/* Responsive */
+
+@media only screen and (max-width: 992px) {
+
+.detail-page{
+  padding: 30px 18%;
+  flex-wrap: wrap;
+}
+.detail-box{
+  width:100%;
+   flex-wrap: wrap;
+}
+.other-detail{
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-top: 2%;
+  width:100%
+}
+.detail-price, .detail-seller, .detail-map,.detail-img,.detail-img-list,.detail-description{
+  width: 100%;
+  padding: 20px;
+}
+
 }
