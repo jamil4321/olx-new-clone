@@ -54,6 +54,7 @@ class Form extends Component {
             Title: this.state.Title,
             Type: this.state.Type
         }
+        console.log(data)
 
     }
     render() {

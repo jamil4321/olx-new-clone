@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import avatar from '../../asset/avatar_1.png'
 
 class AdDetailView extends Component {
@@ -76,7 +77,7 @@ class AdDetailView extends Component {
                                     </div>
                                     <button>Chat with saller</button>
                                     <div className="showNumber">
-                                        <h5> ******* <a href="javascript:void(0)">Show number</a></h5>
+                                        <h5> ******* <Link>Show number</Link></h5>
                                     </div>
                                 </div>
                                 <div className="detail-map">
