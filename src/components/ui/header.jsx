@@ -3,6 +3,7 @@ import logo from '../../asset/Logo.png'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import Popup from './Popup';
+import DropDown from './DropDown';
 
 
 class header extends Component {
@@ -53,12 +54,13 @@ class header extends Component {
                     </div>
                 </div>
                 <div className="hnav fixed flex aic">
-                    <button className="view-cates flex aic color">
+                    <button className="view-cates flex aic color" onClick={() => this.setState({ isOpen: !this.state.isOpen })}>
                         <h2 className="s18 font">All Categories</h2>
                         <button className="fas fa-chevron-down arrow s18" />
                     </button>
                     {this.props.nav.map(item => <Link key={item.id} to={`/browser/${item.label}`} className="bl noul noulh font s15 color">{item.label}</Link>)}
                 </div>
+                <DropDown isOpen={this.state.isOpen} />
                 <div className="hclr" />
             </>
         )

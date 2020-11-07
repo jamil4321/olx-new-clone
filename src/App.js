@@ -11,6 +11,7 @@ import AddFilter from './components/ui/AddFilter';
 import Popup from './components/ui/Popup'
 import Form from './components/ui/Form'
 import FormComponent from './components/ui/FormComponent';
+import DropDown from './components/ui/DropDown';
 class App extends Component {
   componentDidMount() {
     FireBase.database().ref('data').on('value', snapshot => {
@@ -55,6 +56,7 @@ class App extends Component {
           <Route path="/test" component={Popup} />
           <Route path="/:id/form/" component={Form} />
           <Route path="/selectCategory/" component={FormComponent} />
+          <Route path="/DropDown/" component={DropDown} />
           <Footer />
         </BrowserRouter>
       </>
