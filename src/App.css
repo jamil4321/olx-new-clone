@@ -583,8 +583,31 @@ textArea{
 .formComponent{
   padding: 30px 18%;
   color: #002f34;
+  width:80%
 }
 
+.cat-name{
+  /* padding: 10px; */
+  font-size: 20px;
+  text-align: left;
+  border: #002f34 1px solid;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 3px;
+}
+.cat-name span{
+ float: right;
+}
+.subCat-name{
+  font-size: 20px;
+  text-align: left;
+  border: #002f34 1px solid;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 3px;
+  text-decoration: none;
+  width:400px
+}
 
 /* Responsive */
 

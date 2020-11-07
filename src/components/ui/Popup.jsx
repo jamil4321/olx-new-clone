@@ -41,6 +41,7 @@ class PopupComponent extends Component {
             localStorage.setItem("uid", user.uid)
             localStorage.setItem('photo', user.photoURL)
             localStorage.setItem('name', user.displayName)
+            Firebase.database().ref(`/user/${data.uid}/`).set(data)
             dispatch(data);
             close()
         }).catch(function (error) {
@@ -62,6 +63,7 @@ class PopupComponent extends Component {
             localStorage.setItem("uid", user.uid)
             localStorage.setItem('photo', user.photoURL)
             localStorage.setItem('name', user.displayName)
+            Firebase.database().ref(`/user/${data.uid}/`).set(data)
             dispatch(data);
             close()
         }).catch(function (error) {

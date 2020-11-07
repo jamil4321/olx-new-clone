@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import avatar from '../../asset/avatar_1.png'
+import Firebase from '../../Firebase';
 
 class Form extends Component {
     state = {
@@ -18,7 +19,7 @@ class Form extends Component {
         State: "",
         City: '',
         Country: "",
-        Name: '',
+        Name: localStorage.getItem('name'),
         Mobile: ''
     }
     conditionCheck = (name) => {
@@ -28,36 +29,60 @@ class Form extends Component {
         this.setState({ typeAction: name })
     }
     onHandelChange = (e) => {
-
-        if (!e.type) {
+        if (e.target) {
+            this.setState({ [e.target.name]: e.target.value })
+            console.log(e.target.name)
+        } else {
+            console.log(e.type)
             let pushPicture = this.state.pictures;
             pushPicture.push(e)
             this.setState({ pictures: pushPicture })
-        } else {
-            this.setState({ [e.target.name]: e.target.value })
-            console.log(e.target.name)
         }
     }
     onSubmitButton = () => {
         let AdId = Math.round(Math.random() * 1000000000);
         let data = {
-            AddId: AdId,
-            Category: this.state.conditionAction,
+            AddId: AdId.toString(),
+            Category: this.props.match.params.id,
             City: this.state.City,
             Condition: this.state.conditionAction,
             Country: "Pakistan",
             Description: this.state.Description,
-            Mobile: "+923212090090",
-            Name: "Saqib Jiwani",
+            Mobile: "",
+            Name: this.state.Name,
             SetPrice: this.state.SetPrice,
             State: this.state.State,
             Title: this.state.Title,
-            Type: this.state.Type
+            Type: this.state.typeAction
         }
         console.log(data)
+        this.state.pictures.map(data => {
+            let uploadRef = Firebase.storage().ref(`images/${AdId}/${data.name}`).put(data);
+            uploadRef.on('state_changed', snapshot => { }, err => {
+                console.log(err)
+            }, () => {
+                Firebase.storage().ref('images').child(`${AdId}/${data.name}`).getDownloadURL().then(url => console.log(url))
+            })
+            return null
+        })
+        Firebase.database().ref(`data/${AdId}/`).set(data);
+        this.setState({
+            AddId: '',
+            Category: '',
+            Title: '',
+            Description: '',
+            SetPrice: '',
+            pictures: [],
+            State: "",
+            City: '',
+            Country: "",
+            Name: '',
+            Mobile: ''
+        })
 
     }
     render() {
+        console.log()
         return (
             <div className="form">
                 <h1 class="center">POST YOUR AD</h1>
@@ -105,7 +130,7 @@ class Form extends Component {
                 <div className="setAPrice">
                     <h2>SET A PRICE</h2>
                     <label htmlFor="Price">Price</label>
-                    <div className="titleInputDiv flex"> <p className="rupee">Rs</p><input className="titleInputBox" type="number" name="Ad-Title" id="Ad-Title" onChange={(e) => this.onHandelChange(e)} /></div>
+                    <div className="titleInputDiv flex"> <p className="rupee">Rs</p><input className="titleInputBox" type="SetPrice" name="SetPrice" id="SetPrice" onChange={(e) => this.onHandelChange(e)} value={this.state.SetPrice} /></div>
                 </div>
                 <div className="uploadPhotos ">
                     <h2>UPLOAD IMAGES</h2>
@@ -147,14 +172,14 @@ class Form extends Component {
                             <div className="titleInputDiv">
                                 <input className="titleInputBox" type="text" name="Name" id="Name" onChange={(e) => this.onHandelChange(e)} value={this.state.Name} />
                             </div>
-                            <p>11 / 30</p>
+                            <p>{this.state.Name.length} / 30</p>
                         </div>
                     </div>
                     <p>Your phone number <span>Number</span></p>
-                    <p>Show my phone number on my ads <input type="radio" value="true" name="Condition" /><input type="radio" value="false" name="Condition" /></p>
+                    <p>Show my phone number on my ads <input type="radio" value="true" name="Condition" /><input type="radio" value="false" name="Condition" checked /></p>
                 </div>
                 <div className="postNow">
-                    <button>POST NOW</button>
+                    <button onClick={this.onSubmitButton}>POST NOW</button>
                 </div>
             </div>
         )

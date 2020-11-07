@@ -18,8 +18,8 @@ class header extends Component {
         console.log(this.state.isOpen)
     }
     sellButton = () => {
-        if (this.props.isLogin) {
-            window.location.href = "/test"
+        if (!!localStorage.getItem('uid')) {
+            window.location.href = "/selectCategory/"
         } else {
             console.log('notLogin')
         }

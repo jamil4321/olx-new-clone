@@ -8,7 +8,16 @@ class ListItem extends Component {
     }
     componentDidMount() {
         let data = ''
-        setTimeout(() => { data = this.props.images.filter(find => find.folderName === this.props.data.AddId)[0].folderImages.map(data => data).filter(obj => Object.keys(obj).some(key => obj[key].includes('title'))); this.setState({ imageSrc: data[0] }) }, 1000)
+        setTimeout(() => {
+            data = this.props.images.filter(find =>
+                find.folderName === this.props.data.AddId)[0]
+                .folderImages
+                .map(data => data)
+                .filter(obj => Object.keys(obj)
+                    .some(key => obj[key].includes('title')));
+            this.setState({ imageSrc: data[0] })
+        },
+            1000)
     }
     render() {
 
