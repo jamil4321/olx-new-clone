@@ -10,6 +10,7 @@ import AdDetailView from './components/ui/AdDetailView';
 import AddFilter from './components/ui/AddFilter';
 import Popup from './components/ui/Popup'
 import Form from './components/ui/Form'
+import FormComponent from './components/ui/FormComponent';
 class App extends Component {
   componentDidMount() {
     FireBase.database().ref('data').on('value', snapshot => {
@@ -52,7 +53,8 @@ class App extends Component {
           <Route path="/AdView/:id" component={AdDetailView} />
           <Route path="/browser/:id" component={AddFilter} />
           <Route path="/test" component={Popup} />
-          <Route path="/form" component={Form} />
+          <Route path="/:id/form/" component={Form} />
+          <Route path="/selectCategory/" component={FormComponent} />
           <Footer />
         </BrowserRouter>
       </>

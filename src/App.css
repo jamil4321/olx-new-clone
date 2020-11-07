@@ -580,7 +580,10 @@ textArea{
     color:white
 }
 
-
+.formComponent{
+  padding: 30px 18%;
+  color: #002f34;
+}
 
 
 /* Responsive */
