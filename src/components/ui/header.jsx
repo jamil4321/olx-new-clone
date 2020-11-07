@@ -9,7 +9,8 @@ import DropDown from './DropDown';
 class header extends Component {
     state = {
         isOpen: false,
-        serchInput: ''
+        serchInput: '',
+        isDropDownOpen: false
     }
     onHHandleChange = (e) => {
         this.setState({ serchInput: e.target.value })
@@ -20,7 +21,7 @@ class header extends Component {
     }
     sellButton = () => {
         if (!!localStorage.getItem('uid')) {
-            window.location.href = "/selectCategory/"
+            window.location.href = "/selectCategory"
         } else {
             console.log('notLogin')
         }
@@ -54,13 +55,13 @@ class header extends Component {
                     </div>
                 </div>
                 <div className="hnav fixed flex aic">
-                    <button className="view-cates flex aic color" onClick={() => this.setState({ isOpen: !this.state.isOpen })}>
+                    <button className="view-cates flex aic color" onClick={() => this.setState({ isDropDownOpen: !this.state.isDropDownOpen })}>
                         <h2 className="s18 font">All Categories</h2>
                         <button className="fas fa-chevron-down arrow s18" />
                     </button>
                     {this.props.nav.map(item => <Link key={item.id} to={`/browser/${item.label}`} className="bl noul noulh font s15 color">{item.label}</Link>)}
                 </div>
-                <DropDown isOpen={this.state.isOpen} />
+                <DropDown isOpen={this.state.isDropDownOpen} />
                 <div className="hclr" />
             </>
         )
