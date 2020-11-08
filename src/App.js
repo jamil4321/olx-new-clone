@@ -52,7 +52,7 @@ class App extends Component {
           <Route path="/AdView/:id" component={AdDetailView} />
           <Route path="/browser/:id" component={AddFilter} />
           <Route path="/:id/form" component={Form} />
-          <Route path="/selectCategory" component={FormComponent} />
+          <Route path="/select/category" component={FormComponent} />
           <Footer />
         </BrowserRouter>
       </>

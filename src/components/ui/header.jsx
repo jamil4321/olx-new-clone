@@ -21,7 +21,7 @@ class header extends Component {
     }
     sellButton = () => {
         if (!!localStorage.getItem('uid')) {
-            window.location.href = "/selectCategory"
+            window.location.href = "/select/category"
         } else {
             console.log('notLogin')
         }
