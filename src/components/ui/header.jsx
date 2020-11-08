@@ -19,13 +19,13 @@ class header extends Component {
         this.setState({ isOpen: !this.state.isOpen })
         console.log(this.state.isOpen)
     }
-    sellButton = () => {
-        if (!!localStorage.getItem('uid')) {
-            window.location.href = "/select/category"
-        } else {
-            console.log('notLogin')
-        }
-    }
+    // sellButton = () => {
+    //     if (!!localStorage.getItem('uid')) {
+    //         window.location.href = "/select/category"
+    //     } else {
+    //         console.log('notLogin')
+    //     }
+    // }
     goToHome = () => {
         window.location.href = "/"
     }
@@ -48,10 +48,10 @@ class header extends Component {
                     <div className="action flex aic">
                         {!!localStorage.getItem('uid') ? <div className="flex profile"><Link className="noulh noul icon-hover"><i class="far fa-comment color fontb s20 "></i></Link><Link className="noulh noul icon-hover"><i class="far fa-bell color fontb s20"></i></Link><img className="profile-avtr" src={localStorage.getItem('photo')} alt={localStorage.getItem('name')} /></div> : <><Link onClick={this.onClickHandel} className="color fontb s15 noulh noul">Login</Link>
                             <Popup isOpen={this.state.isOpen} popUpClose={this.onClickHandel} /></>}
-                        <button className="sell flex aic" onClick={this.sellButton}>
+                        <Link className="sell noul flex aic" to={!!localStorage.getItem('uid') ? "/select/category" : '/'}>
                             <div className="fas fa-plus ico s24" />
                             <h2 className="s18 font">sell</h2>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="hnav fixed flex aic">
