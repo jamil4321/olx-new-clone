@@ -46,7 +46,7 @@ class header extends Component {
                         <button className="fas fa-search go s24" />
                     </div>
                     <div className="action flex aic">
-                        {!!localStorage.getItem('uid') ? <div className="flex profile"><Link className="noulh noul icon-hover"><i class="far fa-comment color fontb s20 "></i></Link><Link className="noulh noul icon-hover"><i class="far fa-bell color fontb s20"></i></Link><img className="profile-avtr" src={localStorage.getItem('photo')} alt={localStorage.getItem('name')} /></div> : <><Link onClick={this.onClickHandel} className="color fontb s15 noulh noul">Login</Link>
+                        {!!localStorage.getItem('uid') ? <div className="flex profile"><Link className="noulh noul icon-hover" to="/chat"><i class="far fa-comment color fontb s20 "></i></Link><Link className="noulh noul icon-hover"><i class="far fa-bell color fontb s20"></i></Link><img className="profile-avtr" src={localStorage.getItem('photo')} alt={localStorage.getItem('name')} /></div> : <><Link onClick={this.onClickHandel} className="color fontb s15 noulh noul">Login</Link>
                             <Popup isOpen={this.state.isOpen} popUpClose={this.onClickHandel} /></>}
                         <Link className="sell noul flex aic" to={!!localStorage.getItem('uid') ? "/select/category" : '/'}>
                             <div className="fas fa-plus ico s24" />

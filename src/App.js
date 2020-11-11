@@ -10,17 +10,21 @@ import AdDetailView from './components/ui/AdDetailView';
 import AddFilter from './components/ui/AddFilter';
 import Form from './components/ui/Form'
 import FormComponent from './components/ui/FormComponent';
+import ChatBox from './components/ui/ChatBox'
 class App extends Component {
   componentDidMount() {
     FireBase.database().ref('data').on('value', snapshot => {
       let data = snapshot.val();
-
       let states = [];
       Object.values(data).map(data => states.push(data.State))
       let NewStates = [...new Set(states)]
       states.filter((item, index) => states.indexOf(item) === index);
       states.reduce((unique, item) => unique.includes(item) ? unique : [...unique, item])
       this.props.onDataLoad(data, NewStates)
+    })
+    FireBase.database().ref('user').on('value', snapshot => {
+      let data = snapshot.val();
+      this.props.onUserDataLoad(data)
     })
     FireBase.storage().ref().child('/images/').listAll().then(res => {
       let imagData = [];
@@ -50,9 +54,12 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={Home} />
           <Route path="/AdView/:id" component={AdDetailView} />
+          <Route exact path="/browser/" component={AddFilter} />
           <Route path="/browser/:id" component={AddFilter} />
           <Route path="/:id/form" component={Form} />
           <Route path="/select/category" component={FormComponent} />
+          <Route exact path="/chat/" component={ChatBox} />
+          <Route path="/chat/:id" component={ChatBox} />
           <Footer />
         </BrowserRouter>
       </>
@@ -70,7 +77,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     onDataLoad: async (data, states) => await dispatch({ type: "GETDATAFROMFIREBASE", isLoading: false, payload: data, states: states }),
-    onImageLoad: async (data) => await dispatch({ type: "GETIMAGESFROMFIREBASE", payload: data })
+    onImageLoad: async (data) => await dispatch({ type: "GETIMAGESFROMFIREBASE", payload: data }),
+    onUserDataLoad: async (data) => await dispatch({ type: 'GETALLUSERS', payload: data })
   }
 }
 

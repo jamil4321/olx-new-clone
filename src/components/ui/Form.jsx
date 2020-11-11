@@ -53,7 +53,8 @@ class Form extends Component {
             SetPrice: this.state.SetPrice,
             State: this.state.State,
             Title: this.state.Title,
-            Type: this.state.typeAction
+            Type: this.state.typeAction,
+            adUserUid: localStorage.getItem('uid')
         }
         console.log(data)
         this.state.pictures.map(data => {

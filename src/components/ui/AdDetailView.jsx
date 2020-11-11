@@ -75,7 +75,7 @@ class AdDetailView extends Component {
                                             <h5>member since Now</h5>
                                         </div>
                                     </div>
-                                    <button>Chat with saller</button>
+                                    <Link to={`/chat/${this.props.detailAddViewData[0].adUserUid}`}><button>Chat with saller</button></Link>
                                     <div className="showNumber">
                                         <h5> ******* <Link>Show number</Link></h5>
                                     </div>

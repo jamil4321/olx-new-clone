@@ -17,6 +17,11 @@ const reducer = (state, action) => {
         images: action.payload
       }
       return newState
+    case "GETALLUSERS":
+      newState = {
+        ...newState,
+        user: action.payload,
+      }
     case 'GETADDETAILVIEW':
       let filterData = Object.values(state.data).filter(find => find.AddId === action.payload)
       let filterImage = state.images.filter(find => find.folderName === action.payload)

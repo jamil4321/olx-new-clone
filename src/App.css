@@ -620,6 +620,113 @@ textArea{
   z-index: 1;
   box-shadow:#002f34 2px 0px 4px 2px;
 }
+.Chat-Page{
+  padding: 30px 18%;
+  width: 
+}
+.inbox-heading{
+  background-color: lightgray;
+  padding: 10px;
+  box-shadow: lightgray 2px 0px 2px 2px;
+}
+.users-div{
+  width: 300px;
+  /* border: #002f34 1px solid; */
+  height: 400px;
+  overflow-y: scroll;
+}
+.user{
+  height: 50px;
+  align-items: center;
+  border:#002f34 1px solid;
+  padding: 10px 20px;
+  margin:1px 0px;
+}
+.user img{
+  height: 50px;
+  border-radius: 50%;
+}
+.chatbox-div{
+ width: 600px;
+height: 400px;
+}
+.username-display{
+  background-color: lightgray;
+  box-shadow: lightgray 2px 0px 2px 2px;
+  align-items: center;
+  width: 100%;
+}
+.chatbox{
+  margin-top: 2px;
+  height: 90%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.username-display img{
+  height: 50px;
+  border-radius: 50%;
+}
+.username-display i{
+  float: left;
+}
+.sendMassage{
+  height: 8%;
+  width: 100%;
+}
+
+.otherUser {
+    position: relative;
+    width: 30%;
+    /* height: 100px; */
+    line-height: 46px;
+    color:black;
+    text-align: center;
+    padding: 0px;
+    background:#00a49f;
+    border-radius: 10px;
+    left:2%
+}
+
+.otherUser:after {
+   content: '';
+   position: absolute;
+   border-style: solid;
+   border-width: 15px 15px 0;
+   border-color: #00a49f transparent;
+   display: block;
+   width: 0;
+   z-index: 1;
+   bottom: -15px;
+   left: 10px;
+}
+.currentUser {
+    position: relative;
+    width: 30%;
+    /* height: 100px; */
+    line-height: 46px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0px;
+    background:#002f34;
+    border-radius: 10px;
+    right: -65%;
+}
+
+
+.currentUser:after {
+   content: '';
+   position: absolute;
+   border-style: solid;
+   border-width: 15px 15px 0;
+   border-color:#002f34 transparent;
+   display: block;
+   width: 0;
+   z-index: 1;
+   bottom: -15px;
+   right: 10px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 992px) {
