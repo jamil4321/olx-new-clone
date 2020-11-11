@@ -58,8 +58,12 @@ class App extends Component {
           <Route path="/browser/:id" component={AddFilter} />
           <Route path="/:id/form" component={Form} />
           <Route path="/select/category" component={FormComponent} />
-          <Route exact path="/chat/" component={ChatBox} />
-          <Route path="/chat/:id" component={ChatBox} />
+          <Route exact path="/chat/">
+            {!!localStorage.getItem('uid') ? <ChatBox /> : <Home />}
+          </Route>
+          <Route exact path="/chat/:id">
+            {!!localStorage.getItem('uid') ? <ChatBox /> : <Home />}
+          </Route>
           <Footer />
         </BrowserRouter>
       </>
