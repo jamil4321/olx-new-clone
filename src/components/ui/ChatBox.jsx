@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import avatar from '../../asset/avatar_1.png';
 import Firebase from '../../Firebase'
 export class ChatBox extends Component {
     constructor(props) {
@@ -13,7 +12,6 @@ export class ChatBox extends Component {
         }
     }
     componentDidMount() {
-        let data = {}
         this.props.match.params.id ? this.setState({ chatUser: Object.values(this.props.user).filter(data => data.uid === this.props.match.params.id)[0], isUserSelecte: true }) : console.log('url', this.props.match)
     }
     onChatClick = (data) => {
