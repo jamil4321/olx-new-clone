@@ -61,7 +61,7 @@ export class ChatBox extends Component {
                         <h2>INBOX</h2>
                     </div>
                     <div className="users-div">
-                        {Object.values(this.props.user).map((data, i) => data.uid !== localStorage.getItem('uid') ? <div className="user flex" key={i}>
+                        {Object.values(this.props.user).map((data, i) => data.uid !== localStorage.getItem('uid') ? <div className="user flex" key={data + i}>
                             <img src={data.photo} alt="avatar" />
                             <h2>{data.name} </h2>
                             <i onClick={() => this.onChatClick(data)} style={{ float: "right" }} className="fas fa-chevron-right"></i>
@@ -76,7 +76,7 @@ export class ChatBox extends Component {
                     <div className="chatbox">
                         {this.state.chats.map((v, i) => {
                             return (
-                                <div className={v.uid !== localStorage.getItem('uid') ? 'otherUser' : 'currentUser'}> <p>{v.message}</p></div>
+                                <div key={v + i} className={v.uid !== localStorage.getItem('uid') ? 'otherUser' : 'currentUser'}> <p>{v.message}</p></div>
                             )
 
                         })}
