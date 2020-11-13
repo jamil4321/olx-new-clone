@@ -12,7 +12,7 @@ export class ChatBox extends Component {
         }
     }
     componentDidMount() {
-        this.props.match.params.id ? this.setState({ chatUser: Object.values(this.props.user).filter(data => data.uid === this.props.match.params.id)[0], isUserSelecte: true }) : console.log('url', this.props.match)
+         window.location.pathname.split('/').lenght ? this.setState({ chatUser: Object.values(this.props.user).filter(data => data.uid ===  window.location.pathname.split('/')[2])[0], isUserSelecte: true }) : console.log('url', this.props.match)
     }
     onChatClick = (data) => {
         this.setState({ chats: [] })
