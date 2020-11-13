@@ -22,7 +22,7 @@ const initialState = {
     { id: 7, label: 'Land & Plots' }],
   data: [],
   images: [],
-  user: [],
+  users: [],
   isDataLoading: true,
   states: [],
   detailAddViewData: [],
